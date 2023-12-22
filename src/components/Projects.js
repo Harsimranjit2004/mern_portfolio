@@ -1,9 +1,46 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const works = [
+   {
+      name: "harsimranjit singh",
+      imageUrl: "http://fllannlfllan.com",
+      projectLink: "https:google.com",
+      codeLink: "https:lkjasdlfkjsS",
+      title: "All",
+      description: "hello i am ",
+      tags: ["All", "helo"],
+   },
+   {
+      name: "harsimranjit singh",
+      imageUrl: "http://fllannlfllan.com",
+      projectLink: "http://finalatklj.com",
+      codeLink: "https:lkjasdlfkjsS",
+      title: "All",
+      description: "hello i am ",
+      tags: ["All", "helo"],
+   },
+   {
+      name: "harsimranjit singh",
+      imageUrl: "http://fllannlfllan.com",
+      projectLink: "http://finalatklj.com",
+      codeLink: "https:lkjasdlfkjsS",
+      title: "All",
+      description: "hello i am ",
+      tags: ["All", "helo"],
+   },
+   {
+      name: "harsimranjit singh",
+      imageUrl: "http://fllannlfllan.com",
+      projectLink: "http://finalatklj.com",
+      codeLink: "https:lkjasdlfkjsS",
+      title: "All",
+      description: "hello i am ",
+      tags: ["All", "helo"],
+   },
    {
       name: "harsimranjit singh",
       imageUrl: "http://fllannlfllan.com",
@@ -46,15 +83,14 @@ const Projects = () => {
                </div>
             ))}
          </div>
-         {/* </div>
          <motion.div
             animate={animateCart}
             transition={{ duration: 0.5, delayChildren: 0.5 }}
-            className="projects__portfolio"
+            className="work__portfolio"
          >
-            {works.map((project, index) => (
-               <div className="project__item project__flex" key={index}>
-                  <div className="project__img project__flex">
+            {works.map((item, index) => (
+               <div className="work__item project__flex">
+                  <div className="work__img project__flex">
                      <img
                         src={require("../assets/demo.png")}
                         alt={works.name}
@@ -66,12 +102,12 @@ const Projects = () => {
                            ease: "easeInOut",
                            staggerChildren: 0.5,
                         }}
-                        className="project__flex project__hover"
+                        className="work__hover project__flex"
                      >
                         <a
-                           href={works.projectLink}
+                           href={item.projectLink}
                            target="_blank"
-                           rel="norreferrer"
+                           rel="noreferrer"
                         >
                            <motion.div
                               whileInView={{ scale: [0, 1] }}
@@ -79,13 +115,16 @@ const Projects = () => {
                               transition={{ duration: 0.25 }}
                               className="project__flex"
                            >
-                              <FontAwesomeIcon icon={faHome} />
+                              <FontAwesomeIcon
+                                 className="project__icon"
+                                 icon={faGithub}
+                              />
                            </motion.div>
                         </a>
                         <a
-                           href={works.projectLink}
+                           href={item.projectLink}
                            target="_blank"
-                           rel="norreferrer"
+                           rel="noreferrer"
                         >
                            <motion.div
                               whileInView={{ scale: [0, 1] }}
@@ -93,24 +132,29 @@ const Projects = () => {
                               transition={{ duration: 0.25 }}
                               className="project__flex"
                            >
-                              <FontAwesomeIcon icon={faHome} />
+                              <FontAwesomeIcon
+                                 className="project__icon"
+                                 icon={faEye}
+                              />
                            </motion.div>
                         </a>
                      </motion.div>
                   </div>
-                  <div className="project__content project__flex">
-                     <h4 className="bold-text">{works.title}</h4>
+                  <div className="project__flex project__content">
+                     <h4 className="bold-text">{item.title}</h4>
                      <p className="p-text" style={{ marginTop: 10 }}>
                         {" "}
-                        {works.description}
+                        {item.description}
                      </p>
                      <div className="project__tag project__flex">
-                        <p className="p-text">{"all"}</p>
+                        <p className="p-text" style={{ textAlign: "left" }}>
+                           {item?.tags?.[0]}
+                        </p>
                      </div>
                   </div>
                </div>
             ))}
-         </motion.div> */}
+         </motion.div>
       </div>
    );
    return content;
