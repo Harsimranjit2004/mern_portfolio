@@ -258,7 +258,7 @@ height: 5vh;
     width: 100%;
     height: auto;
     margin-top: 200px;
-    overflow-wrap: break-word;
+    
     
   }
   .about__information__container{
@@ -507,5 +507,19 @@ height: 5vh;
 .interest__card{
   width: 300px;
   height: 350px;
-  border: 1px solid red;
+  background-color: rgba(128, 128, 128, 0.057);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.interest__icon{
+  margin-top: 2rem;
+}
+.interest__item__heading{
+  margin-top: 3.5rem;
+}
+.interest__description{
+  margin-top: 2rem;
 }
