@@ -44,7 +44,7 @@ const Interest = () => {
          </div>
          <div className="interest__content">
             {interestsData.map((item, key) => (
-               <div className="interest__card">
+               <div className="interest__card" key={item.title}>
                   <div className="interest__icon">
                      <img src={item.icon} alt={item.title} />
                   </div>

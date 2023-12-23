@@ -16,7 +16,7 @@ const Hero = () => {
                </span>
             </h1>
             <h3>
-               i am into{" "}
+               I am into{" "}
                <TypeAnimation
                   sequence={[
                      "Web Development",
@@ -29,7 +29,7 @@ const Hero = () => {
                   speed={5}
                   repeat={Infinity}
                   cursor="|"
-                  style={{ fontSize: "2em", color: "#eb6b40" }}
+                  style={{ fontSize: "1.9rem", color: "#eb6b40" }}
                />
             </h3>
             <button onClick={() => navigate("/Contact")}>Hire me</button>

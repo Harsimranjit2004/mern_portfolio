@@ -29,12 +29,14 @@ const DisplayHeader = () => {
                      <FontAwesomeIcon
                         className="nav__dropdown__button"
                         icon={faBars}
+                        size="2xl"
                         onClick={onDropDownButtonClicked}
                      />
                   )}
                   {isSideBarOpen && (
                      <FontAwesomeIcon
                         icon={faClose}
+                        size="2xl"
                         onClick={onDropDownButtonClicked}
                      />
                   )}
