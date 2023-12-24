@@ -11,7 +11,7 @@ const DisplayHeader = () => {
    const content = (
       <>
          <div className="header">
-            <img src={require("../assets/2.png")} alt="logo" />
+            <img src={require("../assets/main_logo.png")} alt="logo" />
             <nav>
                {menuItems.map((item) => (
                   <div className="nav__items__container" key={item.name}>
@@ -43,7 +43,26 @@ const DisplayHeader = () => {
                </div>
             </nav>
          </div>
-         {isSideBarOpen && <div className="nav__dropdown"></div>}
+         {isSideBarOpen && (
+            <div className="nav__dropdown">
+               {menuItems.map((item) => (
+                  <div className="nav__dropdown__item" key={item.name}>
+                     <Link
+                        className="nav__items"
+                        to={item.name}
+                        onClick={onDropDownButtonClicked}
+                     >
+                        {item.name}
+                     </Link>
+                  </div>
+               ))}
+               <div className="nav__dropdown__item">
+                  <Link className="nav__items" to={"admin"}>
+                     Admin
+                  </Link>
+               </div>
+            </div>
+         )}
       </>
    );
    return content;

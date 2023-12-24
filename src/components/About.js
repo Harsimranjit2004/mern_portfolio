@@ -4,18 +4,6 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const About = () => {
-   const boxVariant = {
-      hidden: {
-         x: "100vw",
-      },
-      visible: {
-         x: 0,
-         transition: {
-            delay: 1,
-            when: "beforeChildren",
-         },
-      },
-   };
    const listVariant = {
       hidden: {
          x: +100,
@@ -33,7 +21,7 @@ const About = () => {
             <FontAwesomeIcon
                icon={faUser}
                className="about__heading__icon"
-               size="lg"
+               size="xl"
             />
 
             <h2 className="about__heading__content">
@@ -47,9 +35,9 @@ const About = () => {
                </div>
             </div>
             <motion.div
-               variants={boxVariant}
-               animate="visible"
-               initial="hidden"
+               animate={{ opacity: 1, x: 0 }}
+               transition={{ delay: 0.5 }}
+               initial={{ opacity: 0, x: +400 }}
                className="about__description__container"
             >
                <motion.h2 variants={listVariant}>I'm Harsimran</motion.h2>
@@ -71,10 +59,12 @@ const About = () => {
                   variants={listVariant}
                   className="about__description__info"
                >
-                  <span style={{ color: "#eb6b40" }}>Place : </span>ontarion
-                  canada
+                  <span style={{ color: "#eb6b40" }}>Place : </span>Ontario
+                  Canada
                </motion.h3>
-               <motion.button variants={listVariant}>Resume</motion.button>
+               <div className="about__description__button">
+                  <motion.button variants={listVariant}>Resume</motion.button>
+               </div>
             </motion.div>
          </div>
       </div>

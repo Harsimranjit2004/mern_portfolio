@@ -8,11 +8,11 @@ const Hero = () => {
    const content = (
       <div className="hero__main">
          <div className="hero__information">
-            <h1>👋 Hi There</h1>
+            <h1>Hi There 👋</h1>
             <h1>
                I'm{" "}
                <span className="hero__information__name">
-                  Harsimranjit singh
+                  Harsimranjit Singh
                </span>
             </h1>
             <h3>
@@ -29,10 +29,12 @@ const Hero = () => {
                   speed={5}
                   repeat={Infinity}
                   cursor="|"
-                  style={{ fontSize: "1.9rem", color: "#eb6b40" }}
+                  style={{ color: "#eb6b40" }}
                />
             </h3>
-            <button onClick={() => navigate("/Contact")}>Hire me</button>
+            <div className="hero__hire__button">
+               <button onClick={() => navigate("/Contact")}>Hire me</button>
+            </div>
          </div>
          <div className="hero__image__container">
             <motion.img
@@ -42,13 +44,12 @@ const Hero = () => {
                   duration: 0.3,
                   ease: [0, 0.71, 0.2, 1.01],
                   scale: {
-                     type: "spring",
+                     type: "tween",
                      damping: 5,
                      stiffness: 100,
                      restDelta: 0.001,
                   },
                }}
-               //    className="hero__image"
                src={require("../assets/demo.png")}
                alt="heroImage"
             />

@@ -33,6 +33,7 @@ const footLinks = [
 ];
 
 const Footer = () => {
+   const handleLinkedin = () => {};
    const content = (
       <>
          <div className="footer__main">
@@ -41,8 +42,10 @@ const Footer = () => {
                   <img src={require("../assets/2.png")} alt="logo" />
                </div>
                <div className="footer__media__icons">
-                  <div className="footer__linkedin">
-                     <FontAwesomeIcon icon={faLinkedin} size="2xl" />
+                  <div className="footer__linkedin" onClick={handleLinkedin()}>
+                     <a href="https://www.linkedin.com/in/harsimranjit-singh-775781278/">
+                        <FontAwesomeIcon icon={faLinkedin} size="2xl" />
+                     </a>
                   </div>
                   <div className="footer__whatsapp">
                      <FontAwesomeIcon icon={faWhatsapp} size="2xl" />
