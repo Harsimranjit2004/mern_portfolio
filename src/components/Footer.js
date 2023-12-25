@@ -65,7 +65,7 @@ const Footer = () => {
                <div className="footer__navigation__buttons">
                   {menuItems.map((item) => (
                      <div className="" key={item.name}>
-                        <Link className="footer__navitems" to={item.name}>
+                        <Link className="footer__navitems" to={item.path}>
                            {item.name}
                         </Link>
                      </div>

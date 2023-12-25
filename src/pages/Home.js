@@ -1,7 +1,7 @@
-import Hero from "../components/Hero";
-import About from "../components/About";
-import Projects from "../components/Projects";
-import Interest from "../components/Interest";
+import Hero from "../components/HomePage/Hero";
+import About from "../components/HomePage/About";
+import Projects from "../components/HomePage/Projects";
+import Interest from "../components/HomePage/Interest";
 
 const Home = () => {
    const conetent = (

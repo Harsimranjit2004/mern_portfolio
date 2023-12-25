@@ -974,7 +974,7 @@ nav {
       border-bottom: 1px solid #eb6b40;
    }
 }
-
+/*--------------about Skills ----------------*/
 .about__skills__main {
    background-color: white;
    padding: 2rem;
@@ -999,7 +999,7 @@ nav {
    margin-bottom: 3rem;
    /* background-color: red; */
 }
-
+/*-----------------about education------------*/
 .about__education__main {
    background-color: #eb6b4021;
 }
@@ -1018,5 +1018,289 @@ nav {
    }
    .about__education__heading__container h1 {
       text-align: center;
+   }
+}
+.date__color {
+   color: #eb6b40;
+   font-weight: bolder;
+}
+
+/*------------------------------------Contact Page----------------*/
+
+.contact__form__main {
+   width: 100vw;
+   /* height: 100vh; */
+   margin-top: 5rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+.contact__flex {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.contact__cards {
+   width: 60%;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   flex-wrap: wrap;
+   margin: 4rem 2rem 2rem;
+}
+
+.contact__card {
+   min-width: 290px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   margin: 1rem 0;
+   padding: 1rem;
+   gap: 1rem;
+   border-radius: 10px;
+   cursor: pointer;
+   background-color: #f5dddf;
+   transition: all 0.3 ease-in-out;
+   text-align: center;
+   overflow: hidden;
+}
+.contact__card__icon {
+   width: 40px;
+   height: 40px;
+   margin: 0 0.7rem;
+}
+.contact__card p {
+   font-weight: 500;
+}
+.contact__card a {
+   text-decoration: none;
+   font-weight: 500;
+}
+
+.contact__card:hover {
+   box-shadow: 0 0 25px #fef4f5;
+}
+
+@media screen and (max-width: 450px) {
+   .contact__form__main {
+      padding: 1rem;
+   }
+   .contact__card a {
+      width: 100%;
+      font-size: 1rem;
+   }
+   /* .contact__card p {
+      text-align: center;
+   } */
+}
+@media screen and (max-width: 450px) {
+   .contact__cards {
+      width: 100%;
+   }
+}
+
+.contact__cards .contact__card:last-child {
+   background-color: #f2f7fb;
+}
+.contact__cards .contact__card:last-child:hover {
+   box-shadow: 0 0 25px #f2f7fb;
+}
+
+.contact__form {
+   width: 60%;
+   flex-direction: column;
+   margin: 1rem 2rem;
+}
+
+.contact__form div {
+   width: 100%;
+   margin: 0.75rem 0;
+   border-radius: 10px;
+   cursor: pointer;
+   background-color: white;
+   transition: all 0.3s ease-in-out;
+   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.contact__form input,
+textarea {
+   width: 100%;
+   padding: 0.95rem;
+   border: none;
+   border-radius: 7px;
+
+   background-color: white;
+   font-family: Arial, Helvetica, sans-serif;
+   color: #eb6b40;
+   outline: none;
+}
+.contact__form textarea {
+   height: 270px;
+}
+.contact__form:hover {
+   box-shadow: 0 0 25px #f2f7fb;
+}
+
+.contact__form button {
+   padding: 1rem 2rem;
+   border-radius: 10px;
+   border: none;
+   background-color: #eb6b40;
+   font-weight: 500;
+   color: black;
+   outline: none;
+   margin: 2rem 0 0 0;
+   font-family: Arial, Helvetica, sans-serif;
+   transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+   cursor: pointer;
+   /* transition: all 0.5 ease; */
+}
+.contact__form button:hover {
+   /* background-color: #2430af; */
+   color: white;
+   /* scale: 0.9; */
+}
+@media screen and (max-width: 768px) {
+   .contact__form {
+      width: 100%;
+      margin: 1rem 0;
+   }
+   .contact__card {
+      font-size: 1rem;
+   }
+   .contact__form input {
+      font-size: 1.1rem;
+   }
+   .contact__form textarea {
+      height: 200px;
+      font-size: 1.1rem;
+   }
+   .contact__form button {
+      font-size: 1.1rem;
+   }
+}
+.head-text {
+   font-size: 2.75rem;
+   font-weight: 800;
+   text-align: center;
+   color: #eb6b40;
+   text-transform: capitalize;
+}
+.p-text {
+   font-size: 0.8rem;
+   text-align: left;
+   color: gray;
+   line-height: 1.5;
+}
+@media screen and (max-width: 450px) {
+   .head-text {
+      font-size: 2rem;
+   }
+   .p-text {
+      font-size: 1.75rem;
+      text-align: center;
+   }
+}
+
+/*-------------------Blogs-------------------*/
+.blogs__main {
+   width: 100vw;
+   height: auto;
+   padding: 2rem;
+   margin-top: 7rem;
+}
+.blogs__heading__container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 2rem;
+   color: #eb6b40;
+}
+.blogs__cards__container {
+   margin-top: 3rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   gap: 5rem;
+}
+.blog__card {
+   width: 100%;
+   max-width: 300px;
+   background-color: #fff;
+   color: #333;
+   border-radius: 10px;
+   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+   overflow: hidden;
+   transition: transfomr 0.3s ease-in-out;
+   position: relative;
+}
+.blog__card::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   /* background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.3)); */
+
+   background-size: cover;
+   background-blend-mode: overlay;
+   z-index: 1;
+}
+.blog__card:hover {
+   transform: scale(1.05);
+}
+.blog__card img {
+   width: 100%;
+   max-width: 300px;
+   max-height: 120px;
+   object-fit: cover;
+   filter: brightness(70%);
+   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+   transition: filter 0.3s ease-in-out;
+}
+.blog__card:hover img {
+   filter: brightness(100%);
+}
+.blog__card__content {
+   padding: 15px;
+   position: relative;
+   z-index: 2;
+}
+.blog__card__title {
+   font-size: 1.2rem;
+   margin-bottom: 10px;
+   color: #eb6b40;
+   line-height: 1.4;
+}
+.blog__card__description {
+   font-size: 1rem;
+   color: #333;
+   opacity: 0;
+   height: 0;
+   overflow: hidden;
+   transition: heigth 1s ease, opacity 0.3s ease-in-out;
+}
+.blog__card:hover .blog__card__description {
+   opacity: 1;
+   height: auto;
+   margin-top: 10px;
+}
+.read-more {
+   display: inline-block;
+   background: #eb6b40;
+   padding: 8px 16px;
+   margin-top: 10px;
+   border-radius: 5px;
+   text-decoration: none;
+   color: black;
+   transition: background 0.3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+   .blog__card p {
+      display: none;
    }
 }

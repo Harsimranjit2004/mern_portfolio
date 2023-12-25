@@ -54,13 +54,15 @@ const Education = () => {
          <div className="about__education__heading__container">
             <h1>Education and Experience</h1>
          </div>
-         <div>
+         <div className="about__education__">
             <VerticalTimeline>
                {data.map((item, index) => (
                   <VerticalTimelineElement
                      className={item.className}
                      iconStyle={item.iconStyle}
                      date={item.date}
+                     dateClassName="date__color"
+                     key={index}
                   >
                      <h3 className="vertical-timeline-element-title">
                         {item.title}

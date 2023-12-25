@@ -73,7 +73,7 @@ const Projects = () => {
          <div className="project__filter">
             {["MERN", "Blockchain", "React js", "All"].map((item, index) => (
                <div
-                  key={index}
+                  key={item.imageUrl}
                   onClick={() => handleFilter(item)}
                   className={`projects__filter__item ${
                      activeFilter === item ? "item-active" : ""
@@ -92,7 +92,7 @@ const Projects = () => {
                <div className="work__item project__flex">
                   <div className="work__img project__flex">
                      <img
-                        src={require("../assets/demo.png")}
+                        src={require("../../assets/demo.png")}
                         alt={works.name}
                      />
                      <motion.div

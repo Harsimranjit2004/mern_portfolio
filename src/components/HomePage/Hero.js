@@ -50,7 +50,7 @@ const Hero = () => {
                      restDelta: 0.001,
                   },
                }}
-               src={require("../assets/demo.png")}
+               src={require("../../assets/demo.png")}
                alt="heroImage"
             />
          </div>

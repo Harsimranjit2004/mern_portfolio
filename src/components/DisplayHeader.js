@@ -58,7 +58,7 @@ const DisplayHeader = () => {
                   <div className="nav__dropdown__item" key={item.name}>
                      <Link
                         className="nav__items"
-                        to={item.name}
+                        to={item.path}
                         onClick={onDropDownButtonClicked}
                      >
                         {item.name}

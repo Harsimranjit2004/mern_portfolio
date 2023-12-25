@@ -31,7 +31,10 @@ const About = () => {
          <div className="about__information__container">
             <div className="about__image__container">
                <div className="about__image__card">
-                  <img src={require("../assets/demo.png")} alt="about_photo" />
+                  <img
+                     src={require("../../assets/demo.png")}
+                     alt="about_photo"
+                  />
                </div>
             </div>
             <motion.div
