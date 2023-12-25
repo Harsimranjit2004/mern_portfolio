@@ -606,11 +606,14 @@ nav {
    transition: all 1s ease;
    color: black;
 }
+.footer__linkedin:hover {
+   scale: 1.3;
+}
 .footer__linkedin a {
    text-decoration: none;
    color: #000;
 }
-.footer__linkedin:hover {
+.footer__linkedin a:hover {
    color: #fff;
    scale: 1.3;
 }
@@ -723,5 +726,297 @@ nav {
       justify-content: center;
       align-items: center;
       font-size: 0.9rem;
+   }
+}
+
+/* ---------------About Page----------------*/
+
+.about__page__main {
+   margin-top: 4.8rem;
+   width: 100vw;
+   height: auto;
+}
+.parallel_image {
+   position: fixed;
+   top: 0;
+   z-index: -1;
+   width: 100vw;
+   height: 100vmax;
+}
+.parallel_image img {
+   width: 100%;
+   height: 100%;
+}
+/*-----------About page hero --------------*/
+
+.about__hero__main {
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   padding: 2rem;
+   margin-top: 12%;
+   margin-bottom: 12%;
+   background-color: #0000000f;
+}
+.about__hero__text__container {
+   width: 40%;
+   padding: 0.5rem;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: center;
+   gap: 2rem;
+}
+.about__hero__text__container h1 {
+   font-size: 3.5rem;
+   color: wheat;
+}
+.about__hero__text__container p {
+   font-size: 1.5rem;
+   color: wheat;
+   font-family: Arial, Helvetica, sans-serif;
+}
+.about__hero__button__container {
+   margin-top: 2rem;
+}
+.about__hero__button__container button {
+   width: fit-content;
+   border-radius: 8px;
+   font-size: 1rem;
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: bold;
+   border: none;
+   padding: 1rem;
+   background-color: #eb6b40;
+   color: black;
+}
+.about__hero__button__container button:hover {
+   scale: 0.9;
+   color: white;
+}
+.about__hero__image__container {
+   padding: 0.5rem;
+   width: 40%;
+}
+.about__hero__image__container img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+@media only screen and (max-width: 480px) {
+   .about__hero__main {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+   }
+   .about__hero__text__container {
+      width: fit-content;
+      margin-top: 4rem;
+      padding: 2rem;
+   }
+   .about__hero__text__container h1 {
+      font-size: 2.5rem;
+   }
+   .about__hero__paragraph__container {
+      width: fit-content;
+   }
+   .about__hero__image__container {
+      width: 70vw;
+   }
+   .about__hero__button__container button:hover {
+      scale: 1;
+      color: #000;
+   }
+}
+.hello {
+   width: 100vw;
+   height: 200px;
+   background-color: white;
+}
+/* ------------ personal info------------*/
+.about__personal__main {
+   background-color: white;
+   padding: 2rem;
+   border-bottom: 1px solid black;
+}
+.about__personal__heading__container {
+   padding: 0.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.about__personal__heading {
+   text-decoration: underline;
+   text-align: center;
+   color: #eb6b40;
+   font-size: 3rem;
+}
+.about__personal__info__container {
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-evenly;
+   margin-top: 3rem;
+   /* flex */
+}
+.about__personal__content__container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   /* align-items: center; */
+   gap: 1.5rem;
+}
+.about__personal__content__container h3 {
+   font-size: 2rem;
+   text-align: left;
+   color: #eb6b40;
+}
+
+.about__personal__content__container p {
+   /* font-family: Arial, Helvetica, sans-serif; */
+   overflow-wrap: break-word;
+}
+.about__personal__content__row {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   align-items: center;
+   gap: 2rem;
+}
+.about__personal__content__rows {
+   line-height: 2;
+   font-size: 1.3rem;
+}
+.about__personal__content__rows strong {
+   color: #eb6b40;
+}
+.about__personal__cards__container {
+   display: flex;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   margin-top: 5rem;
+   gap: 2rem;
+   align-items: center;
+   margin-bottom: 2rem;
+}
+.about__personal__card {
+   /* border: 1px solid #eb6b40; */
+   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 4px rgba(0, 0, 0, 0.1) inset;
+   width: fit-content;
+   padding: 2rem;
+   font-size: 1.4rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+.about__persoanl__card__number {
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.about__personal__card__sign {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 0.2rem;
+}
+.counter {
+   text-align: center;
+   font-size: xx-large;
+}
+
+@media only screen and (max-width: 480px) {
+   .about__personal__main {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+   }
+   .about__personal__info__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
+   .about__hero__image__container {
+      width: 100%;
+      height: 30vh;
+      margin-bottom: 1rem;
+   }
+   .about__personal__content__container h3 {
+      margin-left: 2rem;
+   }
+   .about__personal__content__container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   .about__personal__content__row {
+      display: flex;
+      width: 80%;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+      gap: 0;
+   }
+   .about__personal__content__rows {
+      margin-left: 10%;
+   }
+   .about__personal__card {
+      border: 0;
+      box-shadow: none;
+      border-bottom: 1px solid #eb6b40;
+   }
+}
+
+.about__skills__main {
+   background-color: white;
+   padding: 2rem;
+}
+.about__skills__container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: #eb6b40;
+   font-size: 2rem;
+}
+
+.about_skills__content__container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 6rem;
+   padding-left: 15%;
+   padding-right: 15%;
+   margin-top: 3rem;
+   margin-bottom: 3rem;
+   /* background-color: red; */
+}
+
+.about__education__main {
+   background-color: #eb6b4021;
+}
+.about__education__heading__container {
+   color: #eb6b40;
+   font-size: 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 2rem 0;
+}
+
+@media only screen and (max-width: 480px) {
+   .about__education__heading__container {
+      font-size: 1rem;
+   }
+   .about__education__heading__container h1 {
+      text-align: center;
    }
 }

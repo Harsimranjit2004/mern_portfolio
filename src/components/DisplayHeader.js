@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { menuItems } from "../config/menuItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose, faHouse } from "@fortawesome/free-solid-svg-icons";
@@ -8,14 +8,23 @@ const DisplayHeader = () => {
    const onDropDownButtonClicked = () => {
       setIsSideBarOpen((prev) => !prev);
    };
+   const navigate = useNavigate();
+   const goToHome = () => {
+      navigate("/");
+   };
+   // useEffect(()=>{
+
+   // })
    const content = (
       <>
          <div className="header">
-            <img src={require("../assets/main_logo.png")} alt="logo" />
+            <div onClick={goToHome}>
+               <img src={require("../assets/main_logo.png")} alt="logo" />
+            </div>
             <nav>
                {menuItems.map((item) => (
                   <div className="nav__items__container" key={item.name}>
-                     <Link className="nav__items" to={item.name}>
+                     <Link className="nav__items" to={item.path}>
                         {item.name}
                      </Link>
                   </div>
