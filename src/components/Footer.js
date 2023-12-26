@@ -103,7 +103,7 @@ const Footer = () => {
                </div>
             </div>
          </div>
-         <div className="copyright">@harsimranjit singh</div>
+         <div className="copyright">© harsimranjit singh</div>
       </>
    );
    return content;

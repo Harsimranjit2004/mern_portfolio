@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { menuItems } from "../config/menuItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose, faHouse } from "@fortawesome/free-solid-svg-icons";
+// import ModalComponent from "./Modal";
+import LoginBox from "./Modal";
 const DisplayHeader = () => {
    const [isSideBarOpen, setIsSideBarOpen] = useState(false);
    const onDropDownButtonClicked = () => {
@@ -12,13 +14,26 @@ const DisplayHeader = () => {
    const goToHome = () => {
       navigate("/");
    };
-   // useEffect(()=>{
-
-   // })
+   const [open, setOpen] = useState(false);
+   const handleOpen = () => {
+      setOpen(true);
+   };
+   const handleClose = () => {
+      setOpen(false);
+   };
+   const goToAdmin = () => {
+      navigate("/Admin");
+   };
+   const handleAdmin = () => {
+      onDropDownButtonClicked();
+      handleOpen();
+   };
    const content = (
       <>
+         {/* <LoginBox open={open} handleClose={handleClose} /> */}
+         {/* <ModalComponent open={open} handleClose={handleClose} /> */}
          <div className="header">
-            <div onClick={goToHome}>
+            <div className="header__image" onClick={goToHome}>
                <img src={require("../assets/main_logo.png")} alt="logo" />
             </div>
             <nav>
@@ -33,6 +48,7 @@ const DisplayHeader = () => {
                   <FontAwesomeIcon
                      className="nav__admin__button"
                      icon={faHouse}
+                     onClick={goToAdmin}
                   />
                   {!isSideBarOpen && (
                      <FontAwesomeIcon
@@ -65,8 +81,11 @@ const DisplayHeader = () => {
                      </Link>
                   </div>
                ))}
-               <div className="nav__dropdown__item">
-                  <Link className="nav__items" to={"admin"}>
+               <div
+                  className="nav__dropdown__item nav__items"
+                  onClick={handleClose}
+               >
+                  <Link className="nav__items" to={"Admin"}>
                      Admin
                   </Link>
                </div>
