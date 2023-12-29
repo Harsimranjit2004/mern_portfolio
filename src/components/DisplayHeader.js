@@ -3,8 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { menuItems } from "../config/menuItems";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose, faHouse } from "@fortawesome/free-solid-svg-icons";
-// import ModalComponent from "./Modal";
-import LoginBox from "./Modal";
+
 const DisplayHeader = () => {
    const [isSideBarOpen, setIsSideBarOpen] = useState(false);
    const onDropDownButtonClicked = () => {

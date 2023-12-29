@@ -1,8 +1,15 @@
 import { faMailForward, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-
-const Form = () => {
+import { useGetUserInfoQuery } from "../../features/userInfoApiSlice";
+import emailjs from "@emailjs/browser";
+const Form = ({ id }) => {
+   // const form = useRef();
+   const { userInfo } = useGetUserInfoQuery("userInfoList", {
+      selectFromResult: ({ data }) => ({
+         userInfo: data?.entities[id],
+      }),
+   });
    const [formData, setFormData] = useState({
       name: "",
       email: "",
@@ -14,8 +21,26 @@ const Form = () => {
       const { name, value } = e.target;
       setFormData({ ...formData, [name]: value });
    };
-   const handleSubmit = () => {};
-   const content = (
+   const handleSubmit = (e) => {
+      emailjs
+         .send(
+            "service_8kx7urm",
+            "template_u9un828",
+            {
+               name: name,
+               email: email,
+               message: message,
+            },
+            "Fq-G2rAw8ISSh-66I"
+         )
+         .then((reslut) => {
+            console.log(reslut.text);
+         });
+      setFormSubmitted(true);
+   };
+   let content;
+
+   content = (
       <div className="contact__form__main">
          <h2 className="head-text">Drop up a line & Contact me</h2>
          <div className="contact__cards">
@@ -24,8 +49,8 @@ const Form = () => {
                   className="contact__card__icon"
                   icon={faMailForward}
                />
-               <a href="mailto:hsdosanjh1234@gmail.com" className="p-text">
-                  hsdosanjh1234@gmail.com{" "}
+               <a href={`mailto:${userInfo?.email}`} className="p-text">
+                  {userInfo?.phone}{" "}
                </a>
             </div>
             <div className="contact__card">
@@ -33,8 +58,8 @@ const Form = () => {
                   className="contact__card__icon"
                   icon={faPhone}
                />
-               <a href="tel: +1 9057815750" className="p-text">
-                  9057815750
+               <a href={`tel:${userInfo?.phone}`} className="p-text">
+                  {userInfo?.email}
                </a>
             </div>
          </div>
@@ -78,6 +103,7 @@ const Form = () => {
          )}
       </div>
    );
+
    return content;
 };
 
