@@ -1462,10 +1462,6 @@ textarea {
    height: 270px;
 }
 
-.form__flex:hover {
-   /* box-shadow: 0 0 25px #f2f7fb; */
-}
-
 .form__button {
    padding: 1rem 2rem;
    border-radius: 10px;

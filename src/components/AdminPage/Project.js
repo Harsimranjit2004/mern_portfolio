@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-   useAddNewNoteMutation,
-   useUpdateProjectMutation,
-} from "../../features/projectApiSlice";
+import { useAddNewNoteMutation } from "../../features/projectApiSlice";
 
 const Project = () => {
    const [addNewNote] = useAddNewNoteMutation();

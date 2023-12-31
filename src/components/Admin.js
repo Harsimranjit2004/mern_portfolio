@@ -8,6 +8,7 @@ import {
 } from "../features/userInfoApiSlice";
 import { useSelector } from "react-redux";
 import Project from "./AdminPage/Project";
+import Interest from "./AdminPage/Interest";
 
 const Admin = () => {
    const { data: userInfo } = useGetUserInfoQuery("userInfoList", {
@@ -26,6 +27,10 @@ const Admin = () => {
             <div className="admin__add__project">
                Create New Project
                <Project />
+            </div>
+            <div className="admin__add__project">
+               Create new Interest
+               <Interest />
             </div>
          </div>
       </div>

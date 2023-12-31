@@ -1,4 +1,6 @@
 import React from "react";
+import InterestComponent from "./InterestComponent";
+import { useGetInterestQuery } from "../../features/interestApiSlice";
 const interestsData = [
    {
       icon: "https://placekitten.com/64/64",
@@ -32,6 +34,7 @@ const interestsData = [
    },
 ];
 const Interest = () => {
+   const { data } = useGetInterestQuery();
    let content = (
       <div className="interest__main">
          <div className="interest__heading">
@@ -43,18 +46,8 @@ const Interest = () => {
             </p>
          </div>
          <div className="interest__content">
-            {interestsData.map((item, key) => (
-               <div className="interest__card" key={item.title}>
-                  <div className="interest__icon">
-                     <img src={item.icon} alt={item.title} />
-                  </div>
-                  <div className="interest__item__heading">
-                     <h3>{item.title}</h3>
-                  </div>
-                  <div className="interest__description">
-                     <p>{item.description}</p>
-                  </div>
-               </div>
+            {data?.ids?.map((item, index) => (
+               <InterestComponent id={item} key={index} />
             ))}
          </div>
       </div>
