@@ -1,6 +1,6 @@
 // ResponsiveForm.js
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
    useGetUserInfoQuery,
    useUpdateUserInfoMutation,
@@ -19,8 +19,12 @@ const ResponsiveForm = ({ id }) => {
    const [updateUserInfo, { isLoading, isSuccess, isError, error }] =
       useUpdateUserInfoMutation();
    console.log(userInfo);
-   const [formData, setFormData] = useState({ ...userInfo });
-
+   const [formData, setFormData] = useState({});
+   useEffect(() => {
+      if (userInfo) {
+         setFormData({ ...userInfo });
+      }
+   }, [userInfo]);
    const handleChange = (e) => {
       const { name, value } = e.target;
       setFormData((prevData) => ({

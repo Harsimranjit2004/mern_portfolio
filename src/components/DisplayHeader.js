@@ -13,24 +13,13 @@ const DisplayHeader = () => {
    const goToHome = () => {
       navigate("/");
    };
-   const [open, setOpen] = useState(false);
-   const handleOpen = () => {
-      setOpen(true);
-   };
-   const handleClose = () => {
-      setOpen(false);
-   };
+
    const goToAdmin = () => {
-      navigate("/Admin");
+      navigate("/admin");
    };
-   const handleAdmin = () => {
-      onDropDownButtonClicked();
-      handleOpen();
-   };
+
    const content = (
       <>
-         {/* <LoginBox open={open} handleClose={handleClose} /> */}
-         {/* <ModalComponent open={open} handleClose={handleClose} /> */}
          <div className="header">
             <div className="header__image" onClick={goToHome}>
                <img src={require("../assets/main_logo.png")} alt="logo" />
@@ -80,14 +69,14 @@ const DisplayHeader = () => {
                      </Link>
                   </div>
                ))}
-               <div
+               {/* <div
                   className="nav__dropdown__item nav__items"
-                  onClick={handleClose}
+                  onClick={}
                >
                   <Link className="nav__items" to={"Admin"}>
                      Admin
                   </Link>
-               </div>
+               </div> */}
             </div>
          )}
       </>

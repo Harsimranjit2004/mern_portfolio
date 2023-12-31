@@ -2,49 +2,42 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
-// import { useGetUserInfo } from "../../features/userInfoApiSlice";
+import { useSelector } from "react-redux";
 import {
-   selectUserInfoById,
+   selectAllUserInfo,
    useGetUserInfoQuery,
 } from "../../features/userInfoApiSlice";
-import { useSelector } from "react-redux";
 
-const Hero = ({ id }) => {
-   // const userInfo = useSelector((state) => selectUserInfoById(state, id));
-   const { user } = useGetUserInfoQuery("userInfoList", {
-      selectFromResult: ({ data }) => ({
-         user: data?.entities[id],
-      }),
-   });
-
+const Hero = () => {
    const navigate = useNavigate();
-   // console.log(userInfo);
-   let content;
-   // if (isLoading) content = <p className="error">Loading...</p>;
-   // if (isError) {
-   //    content = <p className="error">{error?.data?.message}</p>;
-   // }
-   // console.log(isSuccess);
-   // console.log(isError);
-   // if (isSuccess) {
-   content = (
+
+   useGetUserInfoQuery();
+   const allUserInfo = useSelector(selectAllUserInfo);
+
+   const content = (
       <div className="hero__main">
          <div className="hero__information">
             <h1>Hi There 👋</h1>
             <h1>
-               I'm <span className="hero__information__name">{user.name}</span>
+               I'm{" "}
+               <span className="hero__information__name">
+                  {allUserInfo?.[0]?.name}
+               </span>
             </h1>
             <h3>
                I am into{" "}
                <TypeAnimation
-                  sequence={[
-                     "Web Development",
-                     2000,
-                     "Machine Learning",
-                     2000,
-                     "Artificial Intelligence",
-                     2000,
-                  ]}
+                  sequence={
+                     [
+                        "Web Development",
+                        2000,
+                        "Machine Learning",
+                        2000,
+                        "Artificial Intelligence",
+                        2000,
+                     ]
+                     // { ...allUserInfo?.[0]?.roles }
+                  }
                   speed={5}
                   repeat={Infinity}
                   cursor="|"
@@ -75,7 +68,7 @@ const Hero = ({ id }) => {
          </div>
       </div>
    );
-   // }
+
    return content;
 };
 

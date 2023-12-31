@@ -5,26 +5,22 @@ import Interest from "../components/HomePage/Interest";
 import { useGetUserInfoQuery } from "../features/userInfoApiSlice";
 import Loading from "../config/Loading";
 const Home = () => {
-   const {
-      data: userInfo,
-      isLoading,
-      isSuccess,
-      isError,
-      error,
-   } = useGetUserInfoQuery("userInfoList", {
-      pollingInterval: 60000,
-      refetchOnFocus: true,
-      refetchOnMountOrArgChange: true,
-   });
+   const { currentData, isFetching, isSuccess, isError, error } =
+      useGetUserInfoQuery(undefined, {
+         pollingInterval: 60000,
+         refetchOnFocus: true,
+         refetchOnMountOrArgChange: true,
+      });
+   // console.log(currentData);
    let content;
-   if (isLoading) content = <Loading />;
+   if (isFetching && !currentData) content = <Loading />;
    if (isError) {
-      content = <p>{error?.data?.message}</p>;
+      content = <p>{error?.currentData?.message}</p>;
    }
    if (isSuccess) {
       content = (
          <div className="home__main">
-            <Hero id={userInfo?.ids[0]} />
+            <Hero />
             <About />
             <Projects />
             <Interest />
