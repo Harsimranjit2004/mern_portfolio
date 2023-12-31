@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import { projectApiSlice } from "../../features/projectApiSlice";
 
 const Project = ({ id }) => {
-   console.log(id);
    const { project } = projectApiSlice.useGetProjectQuery(undefined, {
       selectFromResult: ({ data }) => ({
          project: data?.entities[id],
