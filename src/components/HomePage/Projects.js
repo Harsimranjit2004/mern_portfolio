@@ -41,10 +41,8 @@ const Projects = () => {
             transition={{ duration: 0.5, delayChildren: 0.5 }}
             className="work__portfolio"
          >
-            {console.log(data)}
             {data?.ids?.map(
                (item, index) =>
-                  //   data?.entities[item].tags.includes(activeFilter) && (
                   data?.entities[item].tags.includes(activeFilter) && (
                      <Project id={item} key={index} />
                   )

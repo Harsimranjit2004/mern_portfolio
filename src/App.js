@@ -11,6 +11,7 @@ import Blog from "./pages/Blog";
 import { useSelector } from "react-redux";
 // import updateProject from "./components/HomePage/updateProject";
 // import UpdateProject from "./components/HomePage/UpdateProject"
+// import UpdateProject from "./components/HomePage/UpdateProject";
 import UpdateProject from "./components/HomePage/UpdateProject";
 function App() {
    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -33,7 +34,7 @@ function App() {
             <Route path="/Contact" element={<Contact />} />
             <Route path="/Blogs/:blogId" element={<Blog />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/updateproject" element={<UpdateProject />} />
+            <Route path="project/:projectId" element={<UpdateProject />} />
             <Route
                path="/admin"
                element={

@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
-   useGetProjectQuery,
+   useAddNewNoteMutation,
    useUpdateProjectMutation,
 } from "../../features/projectApiSlice";
-import { useParams } from "react-router-dom";
 
-const UpdateProject = () => {
-   const { projectId } = useParams();
-   const { project } = useGetProjectQuery(undefined, {
-      selectFromResult: ({ data }) => ({
-         project: data?.entities[projectId],
-      }),
+const Project = () => {
+   const [addNewNote] = useAddNewNoteMutation();
+   const [formData, setFormData] = useState({
+      title: "",
+      description: "",
+      projectLink: "",
+      codeLink: "",
+      imageUrl: "",
+      tags: "",
    });
-   const [updateProject] = useUpdateProjectMutation();
-   useEffect(() => {
-      if (project) {
-         setFormData({ ...project });
-      }
-   }, [project]);
-   const [formData, setFormData] = useState({});
    const handleChange = (e) => {
       const { name, value } = e.target;
       setFormData((prevData) => ({
@@ -28,10 +23,17 @@ const UpdateProject = () => {
    };
    const handleSubmit = async (e) => {
       e.preventDefault();
-      await updateProject({ ...formData });
+      console.log("sendinggs");
+      console.log(formData);
+      await addNewNote({ ...formData });
+   };
+   const handleTags = (event) => {
+      const tagsString = event.target.value;
+      const tagsArray = tagsString.split(",").map((tag) => tag.trim());
+      setFormData({ ...formData, tags: tagsArray });
    };
    const content = (
-      <div className="update__form">
+      <div>
          <form className="contact__form" onSubmit={handleSubmit}>
             <div className="form__flex">
                <label>
@@ -52,7 +54,7 @@ const UpdateProject = () => {
                      type="text"
                      name="description"
                      className="form__input"
-                     value={formData.title}
+                     value={formData.description}
                      onChange={handleChange}
                   />
                </label>
@@ -93,6 +95,18 @@ const UpdateProject = () => {
                   />
                </label>
             </div>
+            <div className="form__flex">
+               <label>
+                  Tags:
+                  <input
+                     type="text"
+                     name="tags"
+                     className="form__input"
+                     value={formData.tags ? formData.tags.join(",") : ""}
+                     onChange={handleTags}
+                  />
+               </label>
+            </div>
             <button type="submit" className="form__button">
                Submit
             </button>
@@ -102,4 +116,4 @@ const UpdateProject = () => {
    return content;
 };
 
-export default UpdateProject;
+export default Project;

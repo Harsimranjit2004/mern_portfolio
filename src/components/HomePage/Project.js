@@ -4,17 +4,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
-import { projectApiSlice } from "../../features/projectApiSlice";
+import {
+   projectApiSlice,
+   useDeleteProjectMutation,
+} from "../../features/projectApiSlice";
+import { useNavigate } from "react-router-dom";
 
 const Project = ({ id }) => {
+   const navigate = useNavigate();
    const { project } = projectApiSlice.useGetProjectQuery(undefined, {
       selectFromResult: ({ data }) => ({
          project: data?.entities[id],
       }),
    });
-
+   const [deleteProject] = useDeleteProjectMutation();
    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-   const handleUpdateButton = () => {};
+   const handleUpdateButton = () => {
+      navigate(`/project/${id}`);
+   };
+   const handleDelete = () => {
+      deleteProject({ id });
+   };
    return (
       <div className="work__item project__flex">
          <div className="work__img project__flex">
@@ -67,6 +77,7 @@ const Project = ({ id }) => {
             {isAuthenticated && (
                <div className="project__admin__button">
                   <button onClick={handleUpdateButton}>update</button>
+                  <button onClick={handleDelete}>Delete</button>
                </div>
             )}
          </div>

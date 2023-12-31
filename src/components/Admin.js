@@ -7,6 +7,7 @@ import {
    userInfoApiSlice,
 } from "../features/userInfoApiSlice";
 import { useSelector } from "react-redux";
+import Project from "./AdminPage/Project";
 
 const Admin = () => {
    const { data: userInfo } = useGetUserInfoQuery("userInfoList", {
@@ -19,7 +20,12 @@ const Admin = () => {
       <div className="admin__main">
          <div className="admin__flex">
             <div className="admin__change__userInfo">
+               Update UserInfo
                <ProfileForm id={userInfo?.ids[0]} />
+            </div>
+            <div className="admin__add__project">
+               Create New Project
+               <Project />
             </div>
          </div>
       </div>

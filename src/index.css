@@ -1335,6 +1335,7 @@ textarea {
    align-items: center;
    margin-top: 4rem;
 }
+
 .admin__change__userInfo {
    display: flex;
    justify-content: center;
@@ -1418,6 +1419,13 @@ textarea {
    display: flex;
    align-content: center;
    justify-content: center;
+   flex-direction: column;
+}
+.admin__add__project {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
 }
 .form__main {
    display: flex;
@@ -1494,4 +1502,10 @@ textarea {
    .form__button {
       font-size: 1.1rem;
    }
+}
+.update__form {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 10rem;
 }
