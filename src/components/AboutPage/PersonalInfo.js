@@ -1,6 +1,10 @@
 import React from "react";
 import CountUp from "react-countup";
+import { useSelector } from "react-redux";
+import { selectAllUserInfo } from "../../features/userInfoApiSlice";
 const PersonalInfo = () => {
+   const allUserInfo = useSelector(selectAllUserInfo);
+
    const content = (
       <div className="about__personal__main">
          <div className="about__persoanl__heading__container">
@@ -20,24 +24,29 @@ const PersonalInfo = () => {
                            <strong>Website:</strong> <span></span>
                         </li>
                         <li>
-                           <strong>Phone:</strong> <span>+123 456 7890</span>
+                           <strong>Phone:</strong>{" "}
+                           <span>{allUserInfo?.[0]?.phone}</span>
                         </li>
                         <li>
-                           <strong>City:</strong> <span>Ontario,Canada</span>
+                           <strong>City:</strong>{" "}
+                           <span>{allUserInfo?.[0]?.place}</span>
                         </li>
                      </ul>
                   </div>
                   <div class="about__personal__content__rows">
                      <ul>
                         <li>
-                           <strong>Age:</strong> <span>19</span>
+                           <strong>Age:</strong>{" "}
+                           <span>{allUserInfo?.[0]?.age}</span>
                         </li>
 
                         <li>
-                           <strong>Email:</strong> <span>+123 456 7890</span>
+                           <strong>Email:</strong>{" "}
+                           <span>{allUserInfo?.[0]?.email}</span>
                         </li>
                         <li>
-                           <strong>Freelance:</strong> <span>Available</span>
+                           <strong>Freelance:</strong>{" "}
+                           <span>{allUserInfo?.[0]?.freelance}</span>
                         </li>
                      </ul>
                   </div>
@@ -51,7 +60,7 @@ const PersonalInfo = () => {
                      <CountUp
                         className="counter"
                         start={0}
-                        end={2}
+                        end={allUserInfo?.[0]?.awards}
                         duration={5}
                      />
                      {"+"}
@@ -66,7 +75,7 @@ const PersonalInfo = () => {
                      <CountUp
                         className="counter"
                         start={0}
-                        end={2}
+                        end={allUserInfo?.[0]?.projects}
                         duration={5}
                      />
                      {"+"}
@@ -80,7 +89,7 @@ const PersonalInfo = () => {
                      <CountUp
                         className="counter"
                         start={0}
-                        end={2}
+                        end={allUserInfo?.[0]?.experience}
                         duration={5}
                      />
                      {"+"}

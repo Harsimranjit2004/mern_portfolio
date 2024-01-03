@@ -13,6 +13,8 @@ import { useSelector } from "react-redux";
 // import UpdateProject from "./components/HomePage/UpdateProject"
 // import UpdateProject from "./components/HomePage/UpdateProject";
 import UpdateProject from "./components/HomePage/UpdateProject";
+import UpdateInterest from "./components/HomePage/UpdateInterest";
+import UpdateEducation from "./components/AboutPage/UpdateEducation";
 function App() {
    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
    const PrivateRoute = ({ element, redirectTo }) => {
@@ -35,6 +37,11 @@ function App() {
             <Route path="/Blogs/:blogId" element={<Blog />} />
             <Route path="/login" element={<Login />} />
             <Route path="project/:projectId" element={<UpdateProject />} />
+            <Route path="interest/:interestId" element={<UpdateInterest />} />
+            <Route
+               path="education/:educationId"
+               element={<UpdateEducation />}
+            />
             <Route
                path="/admin"
                element={

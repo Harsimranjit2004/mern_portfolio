@@ -11,7 +11,7 @@ import {
 const Hero = () => {
    const navigate = useNavigate();
 
-   useGetUserInfoQuery();
+   // useGetUserInfoQuery();
    const allUserInfo = useSelector(selectAllUserInfo);
 
    const content = (

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useAddNewInterestMutation } from "../../features/interestApiSlice";
+import { useAddNewSkillsMutation } from "../../features/skillsApiSlice";
 
-const Interest = () => {
-   const [formData, setFormData] = useState({ title: "" });
-   // const [updateInterest] = useUpdateInterestMutation();
-   const [addNewInterest] = useAddNewInterestMutation();
+const Skills = () => {
+   const [addNewSkills] = useAddNewSkillsMutation();
+   const [formData, setFormData] = useState();
+
    const handleChange = (e) => {
       const { name, value } = e.target;
       setFormData((prevData) => ({
@@ -15,43 +15,30 @@ const Interest = () => {
 
    const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log("Form submitted:", formData);
-      await addNewInterest({ ...formData });
+      await addNewSkills({ ...formData });
    };
    return (
       <form className="contact__form" onSubmit={handleSubmit}>
          <div className="form__flex">
             <label>
-               Title:
+               Text:
                <input
                   type="text"
-                  name="title"
+                  name="text"
                   className="form__input"
-                  value={formData.title}
+                  value={formData?.text}
                   onChange={handleChange}
                />
             </label>
          </div>
          <div className="form__flex">
             <label>
-               Description:
+               Value:
                <input
                   type="text"
-                  name="description"
+                  name="value"
                   className="form__input"
-                  value={formData.description}
-                  onChange={handleChange}
-               />
-            </label>
-         </div>
-         <div className="form__flex">
-            <label>
-               Icon:
-               <input
-                  type="text"
-                  name="icon"
-                  className="form__input"
-                  value={formData.icon}
+                  value={formData?.value}
                   onChange={handleChange}
                />
             </label>
@@ -63,4 +50,4 @@ const Interest = () => {
    );
 };
 
-export default Interest;
+export default Skills;

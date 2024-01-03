@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import React from "react";
 import { menuItems } from "../config/menuItems";
+import { useSelector } from "react-redux";
+import { selectAllUserInfo } from "../features/userInfoApiSlice";
 
 const footLinks = [
    {
@@ -34,6 +36,8 @@ const footLinks = [
 
 const Footer = () => {
    const handleLinkedin = () => {};
+   const allUserInfo = useSelector(selectAllUserInfo);
+
    const content = (
       <>
          <div className="footer__main">
@@ -95,10 +99,10 @@ const Footer = () => {
                </div>
                <div className="footer__info">
                   <div className="footer__email">
-                     <h3> Email: hsdosanjh1234@gmail.com</h3>
+                     <h3> Email: {`${allUserInfo?.[0]?.email}`}</h3>
                   </div>
                   <div className="footer__phone">
-                     <h3>Phone: 905-781-5750</h3>
+                     <h3>Phone: {`${allUserInfo?.[0]?.phone}`}</h3>
                   </div>
                </div>
             </div>

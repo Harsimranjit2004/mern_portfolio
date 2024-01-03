@@ -24,17 +24,19 @@ const Projects = () => {
             <span>My Creative Projects</span>
          </h2>
          <div className="project__filter">
-            {["MERN", "Blockchain", "React js", "All"].map((item, index) => (
-               <div
-                  key={item}
-                  onClick={() => handleFilter(item)}
-                  className={`projects__filter__item ${
-                     activeFilter === item ? "item-active" : ""
-                  }`}
-               >
-                  {item}
-               </div>
-            ))}
+            {["MERN", "Blockchain", "Data Science", "All"].map(
+               (item, index) => (
+                  <div
+                     key={item}
+                     onClick={() => handleFilter(item)}
+                     className={`projects__filter__item ${
+                        activeFilter === item ? "item-active" : ""
+                     }`}
+                  >
+                     {item}
+                  </div>
+               )
+            )}
          </div>
          <motion.div
             animate={animateCart}
@@ -44,7 +46,7 @@ const Projects = () => {
             {data?.ids?.map(
                (item, index) =>
                   data?.entities[item].tags.includes(activeFilter) && (
-                     <Project id={item} key={index} />
+                     <Project id={item} key={index} filter={activeFilter} />
                   )
             )}
          </motion.div>

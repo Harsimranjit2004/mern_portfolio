@@ -2,8 +2,12 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
+import { selectAllUserInfo } from "../../features/userInfoApiSlice";
 
 const About = () => {
+   const allUserInfo = useSelector(selectAllUserInfo);
+
    const listVariant = {
       hidden: {
          x: +100,
@@ -43,27 +47,25 @@ const About = () => {
                initial={{ opacity: 0, x: +400 }}
                className="about__description__container"
             >
-               <motion.h2 variants={listVariant}>I'm Harsimran</motion.h2>
+               <motion.h2 variants={listVariant}>
+                  I'm {`${allUserInfo?.[0]?.name}`}
+               </motion.h2>
                <motion.h3 variants={listVariant}>
-                  Artificial intelligence enthusiast.
+                  {allUserInfo?.[0]?.aboutheading}
                </motion.h3>
                <motion.p variants={listVariant}>
-                  Certainly! Here's a shorter version: Passionate about coding
-                  with the MERN stack and deeply engaged in the field of machine
-                  learning. I love transforming data into valuable insights
-                  using innovative algorithms. Let's connect and explore the
-                  exciting intersection of code and artificial intelligence!
+                  {allUserInfo?.[0]?.homeabout}
                </motion.p>
                <motion.h3 variants={listVariant} className="  ">
                   <span style={{ color: "#eb6b40" }}>Email: </span>
-                  hsdosanjh1234@gmail.com
+                  {`${allUserInfo?.[0]?.email}`}
                </motion.h3>
                <motion.h3
                   variants={listVariant}
                   className="about__description__info"
                >
-                  <span style={{ color: "#eb6b40" }}>Place : </span>Ontario
-                  Canada
+                  <span style={{ color: "#eb6b40" }}>Place : </span>{" "}
+                  {allUserInfo?.[0].place}
                </motion.h3>
                <div className="about__description__button">
                   <motion.button variants={listVariant}>Resume</motion.button>

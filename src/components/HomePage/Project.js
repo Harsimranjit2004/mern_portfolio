@@ -10,7 +10,7 @@ import {
 } from "../../features/projectApiSlice";
 import { useNavigate } from "react-router-dom";
 
-const Project = ({ id }) => {
+const Project = ({ id, filter }) => {
    const navigate = useNavigate();
    const { project } = projectApiSlice.useGetProjectQuery(undefined, {
       selectFromResult: ({ data }) => ({
@@ -71,7 +71,8 @@ const Project = ({ id }) => {
             </p>
             <div className="project__tag project__flex">
                <p className="p-text" style={{ textAlign: "left" }}>
-                  {project?.tags?.[0]}
+                  {/* {project?.tags?.[0]} */}
+                  {filter}
                </p>
             </div>
             {isAuthenticated && (

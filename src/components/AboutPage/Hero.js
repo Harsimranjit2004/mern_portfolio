@@ -1,22 +1,23 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectAllUserInfo } from "../../features/userInfoApiSlice";
 
 const Hero = () => {
+   const allUserInfo = useSelector(selectAllUserInfo);
+
    const content = (
       <div className="about__hero__main">
          <div className="about__hero__text__container">
             <div className="about__hero__heading">
                <h1>
                   I'm{" "}
-                  <span style={{ color: "#eb6b40" }}>Harsimranjit Singh</span>
+                  <span style={{ color: "#eb6b40" }}>
+                     {allUserInfo?.[0]?.name}
+                  </span>
                </h1>
             </div>
             <div className="about__hero__paragraph__container">
-               <p>
-                  lkasjoiwe jlkn asnd fioaw ejoiaj sdoifjaoeirjoiasj dfoi
-                  jasdoif lkasjoiwejlknasnd fioawejoiaj sdoifjaoeirjoiasj dfoi
-                  jasdoif lkasjoiwejlknasnd fioawejoiaj sdoifjaoeirjoiasj dfoi
-                  jasdoif
-               </p>
+               <p>{allUserInfo?.[0]?.about}</p>
             </div>
             <div className="about__hero__button__container">
                <button className="about__hero__button">Resume</button>

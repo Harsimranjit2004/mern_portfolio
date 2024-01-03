@@ -1,14 +1,11 @@
 import React from "react";
-import { Form } from "react-router-dom";
 import ProfileForm from "./AdminPage/ProfileInfo";
-import {
-   selectAllUserInfo,
-   useGetUserInfoQuery,
-   userInfoApiSlice,
-} from "../features/userInfoApiSlice";
-import { useSelector } from "react-redux";
+import { useGetUserInfoQuery } from "../features/userInfoApiSlice";
+
 import Project from "./AdminPage/Project";
 import Interest from "./AdminPage/Interest";
+import Skills from "./AdminPage/Skills";
+import Education from "./AdminPage/Education";
 
 const Admin = () => {
    const { data: userInfo } = useGetUserInfoQuery("userInfoList", {
@@ -16,7 +13,7 @@ const Admin = () => {
       refetchOnFocus: true,
       refetchOnMountOrArgChange: true,
    });
-   // console.log(userInfo);
+
    return (
       <div className="admin__main">
          <div className="admin__flex">
@@ -31,6 +28,14 @@ const Admin = () => {
             <div className="admin__add__project">
                Create new Interest
                <Interest />
+            </div>
+            <div className="admin__add__project">
+               Create new Skill
+               <Skills />
+            </div>
+            <div className="admin__add__project">
+               Create new Education
+               <Education />
             </div>
          </div>
       </div>

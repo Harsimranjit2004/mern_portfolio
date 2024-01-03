@@ -3,8 +3,29 @@ import {
    useGetUserInfoQuery,
    useUpdateUserInfoMutation,
 } from "../../features/userInfoApiSlice";
-import Project from "./Project";
+
 const ResponsiveForm = ({ id }) => {
+   const [formData, setFormData] = useState({
+      name: "",
+      email: "",
+      phone: "",
+      place: "",
+      instagram: "",
+      github: "",
+      linkedin: "",
+      age: "",
+      freelance: "",
+      projects: "",
+      experience: "",
+      awards: "",
+      roles: "",
+      image1: null, // Assuming this is a file input
+      image2: null,
+      image3: null,
+      aboutheading: "",
+      about: "",
+      homeabout: "",
+   });
    const { userInfo } = useGetUserInfoQuery("userInfoList", {
       selectFromResult: ({ data }) => ({
          userInfo: data?.entities[id],
@@ -14,7 +35,6 @@ const ResponsiveForm = ({ id }) => {
       refetchOnReconnect: true,
    });
    const [updateUserInfo] = useUpdateUserInfoMutation();
-   const [formData, setFormData] = useState({});
    useEffect(() => {
       if (userInfo) {
          setFormData({ ...userInfo });
@@ -204,6 +224,71 @@ const ResponsiveForm = ({ id }) => {
                      onChange={handleChange}
                   />
                </label>
+            </div>
+            <div className="form__flex">
+               <label>
+                  Image 1:
+                  <input
+                     type="file"
+                     name="image1"
+                     accept="image/*"
+                     onChange={(e) => handleImageChange(e, setImage1)}
+                  />
+               </label>
+            </div>
+
+            <div className="form__flex">
+               <label>
+                  Image 2:
+                  <input
+                     type="file"
+                     name="image2"
+                     accept="image/*"
+                     onChange={(e) => handleImageChange(e, setImage2)}
+                  />
+               </label>
+            </div>
+
+            <div className="form__flex">
+               <label>
+                  Image 3:
+                  <input
+                     type="file"
+                     name="image3"
+                     accept="image/*"
+                     onChange={(e) => handleImageChange(e, setImage3)}
+                  />
+               </label>
+            </div>
+            <div className="form__flex">
+               <label>HomeAbout heading</label>
+               <input
+                  type="text"
+                  name="aboutheading"
+                  className="form__input"
+                  value={formData.aboutheading}
+                  onChange={handleChange}
+               />
+            </div>
+            <div className="form__flex">
+               <label>HomeAbout</label>
+               <input
+                  type="text"
+                  name="homeabout"
+                  className="form__input"
+                  value={formData.homeabout}
+                  onChange={handleChange}
+               />
+            </div>
+            <div className="form__flex">
+               <label>About </label>
+               <input
+                  type="text"
+                  name="about"
+                  className="form__input"
+                  value={formData.about}
+                  onChange={handleChange}
+               />
             </div>
             <button type="submit" className="form__button">
                Submit
