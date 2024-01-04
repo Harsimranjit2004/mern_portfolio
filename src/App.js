@@ -7,7 +7,7 @@ import About from "./pages/About";
 import Blogs from "./components/BlogPage/Blogs";
 import Login from "./components/auth/Login";
 import Admin from "./components/Admin";
-import Blog from "./pages/Blog";
+// import Blog from "./pages/Blog";
 import { useSelector } from "react-redux";
 // import updateProject from "./components/HomePage/updateProject";
 // import UpdateProject from "./components/HomePage/UpdateProject"
@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import UpdateProject from "./components/HomePage/UpdateProject";
 import UpdateInterest from "./components/HomePage/UpdateInterest";
 import UpdateEducation from "./components/AboutPage/UpdateEducation";
+import Blog from "./components/BlogPage/Blog";
 function App() {
    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
    const PrivateRoute = ({ element, redirectTo }) => {
@@ -42,6 +43,7 @@ function App() {
                path="education/:educationId"
                element={<UpdateEducation />}
             />
+            {/* <Route path = "\blogs\:blogId" element= {} */}
             <Route
                path="/admin"
                element={

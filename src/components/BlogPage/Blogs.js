@@ -1,4 +1,6 @@
 import React from "react";
+import UploadBlog from "./UploadBlog";
+import { Link } from "react-router-dom";
 const data = [
    {
       title: "Adventure Awaits: Explore the Beauty of Nature",
@@ -55,13 +57,17 @@ const Blogs = () => {
                      <p className="blog__card__description">
                         {item.description}
                      </p>
-                     <a href={item.blogURL} className="read-more">
+                     {/* <a href={itemblogURL} className="read-more">
                         Read More
-                     </a>
+                     </a> */}
+                     <Link className="read-more" to={`/Blogs/234`}>
+                        Read more
+                     </Link>
                   </div>
                </div>
             ))}
          </div>
+         <UploadBlog />
       </div>
    );
    return content;
